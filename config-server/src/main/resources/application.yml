@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: config-server
+# its a dedicated service acts as a central repository. allows all the microservices to retrieve their config dynamically at run time
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/Dasgupta-96/ecommerce-config-server
+          username: ${GITHUB_USERNAME}
+          password: ${GITHUB_TOKEN}
+          default-label: main
+
+
+server:
+  port: 8888
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
